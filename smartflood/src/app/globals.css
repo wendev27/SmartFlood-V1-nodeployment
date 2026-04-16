@@ -6,6 +6,10 @@
   --accent: #0074bd;
   --highlight: #009dff;
   --soft: #61c2ff;
+  --malabon-dark: #0b3a66;
+  --malabon-blue: #003ebd;
+  --malabon-accent: #009dff;
+  --malabon-soft: #61c2ff;
 }
 @theme inline {
   --color-background: var(--background);

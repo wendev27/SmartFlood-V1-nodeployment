@@ -1,52 +1,57 @@
 'use client';
-
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { NAV_ITEMS } from '../config/navigation';
 import { Role } from '../types';
+import { useState } from 'react';
 
+// const role: Role = 'CITY_WELFARE'; // temporary
 type SidebarProps = {
   role: Role;
 };
 
 export default function Sidebar({ role }: SidebarProps) {
-  const pathname = usePathname();
-
-  const filteredNav = NAV_ITEMS.filter((item) => item.roles.includes(role));
+  const [open, setOpen] = useState<string | null>(null);
 
   return (
-    <aside className="w-64 bg-[var(--sidebar)] text-white flex flex-col">
-      {/* Header */}
-      <div className="px-5 py-4 border-b border-white/10">
-        <h1 className="text-lg font-semibold tracking-wide">SmartFlood</h1>
-        <p className="text-xs text-white/60 mt-1">Command Center</p>
-      </div>
+    <aside className="w-64 bg-[#0b3a66] text-white p-4">
+      <h1 className="text-xl font-bold mb-6">
+        {role}
+        <div className="text-sm font-normal opacity-70">{role} Portal</div>
+      </h1>
 
-      {/* Navigation */}
-      <nav className="flex-1 px-3 py-4 space-y-1">
-        {filteredNav.map((item) => {
-          const isActive = pathname === item.href;
+      {NAV_ITEMS.map((module) => {
+        if (!module.roles.includes(role)) return null;
 
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`block px-4 py-2 rounded-lg text-sm font-medium transition ${
-                isActive
-                  ? 'bg-[var(--primary)] text-white shadow'
-                  : 'text-white/80 hover:bg-[var(--accent)] hover:text-white'
-              }`}
+        return (
+          <div key={module.label} className="mb-3">
+            <button
+              onClick={() =>
+                setOpen(open === module.label ? null : module.label)
+              }
+              className="w-full flex justify-between items-center p-2 hover:bg-white/10 rounded"
             >
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
+              {module.label}
+            </button>
 
-      {/* Footer */}
-      <div className="px-5 py-4 border-t border-white/10 text-xs text-white/50">
-        SmartFlood v1.0
-      </div>
+            {open === module.label && (
+              <div className="ml-3 mt-1 space-y-1 text-sm">
+                {module.children?.map((sub) => {
+                  if (!sub.roles.includes(role)) return null;
+
+                  return (
+                    <a
+                      key={sub.href}
+                      href={sub.href}
+                      className="block p-1 hover:text-[#61c2ff]"
+                    >
+                      • {sub.label}
+                    </a>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        );
+      })}
     </aside>
   );
 }

@@ -15,3 +15,5 @@ export default function DashboardLayout({
     </div>
   );
 }
+
+// allocation status cahngte to relief distribiution

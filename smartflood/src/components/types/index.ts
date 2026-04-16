@@ -4,10 +4,17 @@ export type Role =
   | 'CITY_WELFARE'
   | 'BARANGAY';
 
-export type NavItem = {
+export type SubItem = {
   label: string;
   href: string;
   roles: Role[];
+};
+
+export type NavItem = {
+  label: string;
+  icon?: string;
+  roles: Role[];
+  children?: SubItem[];
 };
 
 export type Permission = {
