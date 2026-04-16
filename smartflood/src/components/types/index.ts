@@ -9,3 +9,8 @@ export type NavItem = {
   href: string;
   roles: Role[];
 };
+
+export type Permission = {
+  path: string;
+  roles: Role[];
+};

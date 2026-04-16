@@ -2,6 +2,11 @@ import { NavItem } from '../types';
 
 export const NAV_ITEMS: NavItem[] = [
   {
+    label: 'Dashboard',
+    href: '/dashboard',
+    roles: ['SUPER_ADMIN'],
+  },
+  {
     label: 'Flood Monitoring',
     href: '/flood',
     roles: ['SUPER_ADMIN', 'NDRRMO_OFFICER', 'BARANGAY'],
