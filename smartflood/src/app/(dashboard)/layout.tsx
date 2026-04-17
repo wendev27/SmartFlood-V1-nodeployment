@@ -17,3 +17,12 @@ export default function DashboardLayout({
 }
 
 // allocation status cahngte to relief distribiution
+// barangay no manual allocation
+
+// ai optimized suggetion only
+
+{
+  //   bali magkakaroon ng relief distribution
+  // Negro replied to you
+  // meron pa ring ai-optimized relief suggestion for barangay
+}

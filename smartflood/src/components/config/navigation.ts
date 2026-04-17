@@ -6,24 +6,9 @@ export const NAV_ITEMS: NavItem[] = [
     roles: ['SUPER_ADMIN', 'NDRRMO_OFFICER', 'BARANGAY', 'CITY_WELFARE'],
     children: [
       {
-        label: 'Flood Heatmap',
-        href: '/flood/heatmap',
+        label: 'Home',
+        href: '/dashboard',
         roles: ['SUPER_ADMIN', 'NDRRMO_OFFICER', 'BARANGAY'],
-      },
-      {
-        label: 'Sensor Map',
-        href: '/flood/sensors',
-        roles: ['SUPER_ADMIN', 'NDRRMO_OFFICER', 'BARANGAY'],
-      },
-      {
-        label: 'Flood History',
-        href: '/flood/history',
-        roles: ['SUPER_ADMIN', 'NDRRMO_OFFICER', 'BARANGAY'],
-      },
-      {
-        label: 'Alert Levels',
-        href: '/flood/alerts',
-        roles: ['SUPER_ADMIN', 'NDRRMO_OFFICER'],
       },
     ],
   },
@@ -31,6 +16,11 @@ export const NAV_ITEMS: NavItem[] = [
     label: 'Flood Monitoring',
     roles: ['SUPER_ADMIN', 'NDRRMO_OFFICER', 'BARANGAY'],
     children: [
+      {
+        label: 'Flood Dashboard',
+        href: '/flood',
+        roles: ['SUPER_ADMIN', 'NDRRMO_OFFICER', 'BARANGAY'],
+      },
       {
         label: 'Flood Heatmap',
         href: '/flood/heatmap',
